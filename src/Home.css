@@ -1,0 +1,684 @@
+.Parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.pokemon{
+    width: 90%;
+    height: 90%;
+    position: relative;
+
+}
+
+.show{
+    display: block;
+}
+.hidden{
+    display: none;
+}
+.pokedex-container{
+    margin-top: 35px;
+    width: 900px;
+    height: 600px;
+   display: flex;
+   justify-content: center;
+   
+}
+.pokeHeader{
+    width: 450px;
+    height: 100px;
+    background-color:  #8B0000;
+    border-radius: 20px 0 0 0;
+    
+}
+.btnstatusOn{
+    top: 15px;
+    left: 25px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    position: absolute;
+    background: linear-gradient(to right, #15D5EF, #A2EDF8,#1ACCEC);
+    z-index: 6;
+    border: 5px solid white;
+}
+.btnstatus{
+    top: 15px;
+    left: 25px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    position: absolute;
+    background: linear-gradient(to right, #158c9c, #43a6b7,#14879c);
+    z-index: 6;
+    border: 5px solid white;
+}
+@keyframes loading {
+    100%{
+            /* background: radial-gradient(#fb7b7b, #fb0505); */
+            opacity: 1;
+    }
+}
+.lding1On{
+    top: 15px;
+    left: 115px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid black;
+    background: radial-gradient(#fb7b7b, #fb0505);
+    opacity: .5;
+    animation-name: loading;
+    animation-delay: 0s;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+}
+.lding1Off{
+    top: 15px;
+    left: 115px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid black;
+    background: radial-gradient(#fb7b7b, #fb0505);
+    opacity: .5;
+}
+.lding1err{
+    top: 15px;
+    left: 115px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid black;
+    background: radial-gradient(#fb7b7b, #fb0505);
+    opacity: 1;
+}
+.lding2On{
+    top: 15px;
+    left: 155px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    border: 2px solid black;
+    background: radial-gradient(#fbfb9b, #fbfb05);
+    opacity: .5;
+    animation-name: loading;
+    animation-delay: .1s;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+}.lding2Off{
+    top: 15px;
+    left: 155px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    border: 2px solid black;
+    background: radial-gradient(#fbfb9b, #fbfb05);
+    opacity: .5;
+}
+.lding3On{
+    top: 15px;
+    left: 195px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    border: 2px solid black;
+    background: radial-gradient(#b0fb7b, #50fb05);
+    opacity: .5;
+    animation-name: loading;
+    animation-delay: .7s;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+}
+.lding3Off{
+    top: 15px;
+    left: 195px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    border: 2px solid black;
+    background: radial-gradient(#b0fb7b, #50fb05);
+    opacity: .5;
+}
+.curve1{
+    top: 0px;
+    left: 0;
+    width: 280px;
+    height: 100px;
+    background-color: #8B0000;
+    position: relative;
+    border-radius: 20px 0 0 0;
+    border-bottom-right-radius: 85px 60px;
+    z-index: 3;
+}
+.curve2{
+    top: 60px;
+    right: 0;
+    width: 250px;
+    height: 350px;
+    background-color: #C00D0D;
+    position: absolute;
+   
+    border-top-left-radius: 35px 150px;
+    
+}
+
+.pokedexLeftside{
+    background-color: #C00D0D;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    border-radius: 50px 0px 0px 50px;
+}
+
+
+.pokeScreen-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.grayscreen{
+    height: 300px;
+    width: 400px;
+    background-color: #B0B0B0;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    border-radius: 20px 20px 20px 0;
+}
+
+.grayscreen::after {
+    content: '';
+    bottom: -2px;
+    left: -2px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    /* border-bottom: 100px solid  black; */
+    border-top: 60px solid  #B0B0B0;
+    /* border-right: 100px solid  black; */
+    border-left: 80px solid  #C00D0D;
+    z-index: 4;
+}
+.pokescreen{
+    transition: all .5s ease;
+    width: 300px;
+    height: 200px;
+    top: -20px;
+    background: black;
+    position: relative;
+    z-index: 4;
+    border-radius: 20px;
+    border: 5.5px solid #222;
+}
+
+.pokescreenOn{
+   transition: all 1s ease;
+    width: 300px;
+    height: 200px;
+    top: -20px;
+    background-color: white;
+    position: relative;
+    z-index: 4;
+    border-radius: 20px;
+    border: black 4px solid;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnPower{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(#C00D0D, #8B0000) ;
+    bottom: 10px;
+    left: 100px;
+    position: absolute;
+  
+}
+
+.bocina1{
+    width: 100px;
+    height: 5px;
+    background-color: black;
+    bottom: 45px;
+    right: 60px;
+    position: absolute;
+}
+.bocina2{
+    width: 100px;
+    height: 5px;
+    background-color: black;
+    bottom: 35px;
+    right: 60px;
+    position: absolute;
+}
+.bocina3{
+    width: 100px;
+    height: 5px;
+    background-color: black;
+    bottom: 25px;
+    right: 60px;
+    position: absolute;
+}
+.bocina4{
+    width: 100px;
+    height: 5px;
+    background-color: black;
+    bottom: 15px;
+    right: 60px;
+    position: absolute;
+}
+.minicircle1{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #C00D0D;
+    top: 5px;
+    left: 170px;
+    position: absolute;
+    border: 1px solid;
+}
+.minicircle2{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #C00D0D;
+    top: 5px;
+    left: 220px;
+    position: absolute;
+    border: 1px solid;
+}
+.pwrbtn{
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);
+    position: absolute;
+    border-radius: 50%;
+    left: 80px;
+    bottom: 70px;
+    border: 2px solid black;
+}
+.fontIcon{
+    width: 30px;
+    height: 30px;
+    top: 7px;
+    position: relative;
+}
+.fontIconOn{
+    color: #BBB;
+}
+.pwrbtn:hover{
+    background: linear-gradient(to bottom, #4385f8 0%, #1942e3 80%); 
+}
+.cruz{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color:#C00D0D;
+    
+    bottom: 50px;
+    right: 70px;
+}
+.uppad{
+    position: absolute;
+    top: 0;
+    left: 35px;
+    height: 38px;
+    width: 30px;
+    background-color: #222;
+    border-radius: 9px 9px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.leftpad{
+    position: absolute;
+    top: 36px;
+    left: 0;
+    height: 28px;
+    width: 35px;
+    background-color: #222;
+    border-radius: 9px 0 0 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rightpad{
+    position: absolute;
+    top: 36px;
+    right: 0;   
+    height: 28px;
+    width: 35px;
+    background-color: #222;
+    border-radius: 0 9px 9px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.downpad{
+    position: absolute;
+    bottom: 0px;
+    left: 35px;
+    height: 38px;
+    width: 30px;
+    background-color: #222;
+    border-radius: 0 0 9px 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mid {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    width: 30px;
+    height: 28px;
+    background-color: #222;
+}
+.downpad:hover{
+    background: #333;
+}
+.uppad:hover{
+    background: #333;
+}
+
+.middlesideTop{
+    top: 0;
+    width: 50px;
+    height: 60px;
+    background-color: #8B0000;
+    position: relative;
+}
+.midcilinder{
+    width: 50px;
+    height: 540px;
+    background: linear-gradient(to left, #8B0000,#C00D0D,#8B0000);
+    position: relative;
+}
+.visagra1{
+    top: 146px;
+    height: 40px;
+    width: 50px;
+    background: linear-gradient(to left,#5e0000,#8B0000,#5e0000 );
+    border-top: 1px solid #330000;
+    border-bottom: 1px solid #330000;
+    position: relative;
+}
+.visagra2{
+    top: 322px;
+    height: 40px;
+    width: 50px;
+    background: linear-gradient(to left,#5e0000,#8B0000,#5e0000 );
+    border-top: 1px solid #330000;
+    border-bottom: 1px solid #330000;
+    position: relative;
+}
+.pokeRightHeader{
+    width: 450px;
+    height: 50px;
+    position: relative;
+    background-color: transparent;
+}
+
+.pokedexRightside{
+    position: relative;
+ 
+}
+.curver1{
+    top: -50px;
+    left: 0;
+    width: 450px;
+    height: 100px;
+    position: relative;
+}
+.pokeScreenInfo-container{
+    top:-60px;
+    left: 0;
+    width: 450px;
+    height: 350px;
+    position: relative;
+    background-color: #C00D0D;
+    border-radius: 0 10px 0 0;
+}
+
+.screenInfo{
+    top: 50px;
+    left: 25px;
+    width: 400px;
+    height: 200px;
+    background-color: black;
+    position: absolute;
+    border: 6px solid #222;
+    border-radius: 20px;
+    transition: all .5s ease;
+}
+.screenInfoOn{
+    transition: all 1s ease;
+    top: 50px;
+    left: 25px;
+    width: 400px;
+    height: 200px;
+    background-color: #30da0c;
+    position: absolute;
+    border: 4px solid #222;
+    border-radius: 20px;
+    box-shadow: 0 0 120px #003300 inset
+    
+}
+.pokeSoundButtons{
+    bottom: 2px;
+    left: 0;
+    width: 450px;
+    height: 155px;
+    position: absolute;
+    background-color: #C00D0D;
+    border-radius: 0 0 50px 0;
+}
+
+.filter1{
+    bottom: 40px;
+    left: 10px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter2{
+    bottom: 40px;
+    left: 60px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter3{
+    bottom: 40px;
+    left: 110px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter4{
+    bottom: 40px;
+    left: 160px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter5{
+    bottom: 40px;
+    left: 210px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter6{
+    bottom: 40px;
+    left: 260px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter7{
+    bottom: 40px;
+    left: 310px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter8{
+    bottom: 40px;
+    left: 360px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter9{
+    bottom: 0px;
+    left: 10px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter10{
+    bottom: 0px;
+    left: 60px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter11{
+    bottom: 0px;
+    left: 110px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter12{
+    bottom: 0px;
+    left: 160px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter13{
+    bottom: 0px;
+    left: 210px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter14{
+    bottom: 0px;
+    left: 260px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter15{
+    bottom: 0px;
+    left: 310px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter16{
+    bottom: 0px;
+    left: 360px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter17{
+    bottom: 0px;
+    left: 410px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+.filter18{
+    bottom: 40px;
+    left: 410px;
+    width: 35px;
+    height: 25px;
+    position: absolute;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #307bfb 0%, #0530e5 80%);;
+}
+@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+.search-container label{
+    -webkit-text-stroke: 1.5px black;
+    
+    position: relative;
+    font-family: 'Pokemon Solid', sans-serif;
+    color: yellow;
+    font-size: 20px;
+}
+.search-container{
+    margin-top: 18px;
+    font-family: 'Pokemon Solid', sans-serif;
+    padding: 10px;
+}
+.search-container input{
+    font-weight:600;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #FA4848;
+    padding-left: 10px;
+}
+.search-container button{
+    background: radial-gradient(#fb7b7b, #fb0505);
+    border: 2px solid black;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+.search-container .botonOn:hover{
+    background: #8B0000;
+    
+}
