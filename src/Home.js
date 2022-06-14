@@ -12,12 +12,12 @@ function Home() {
     setTurn,
     turn,
     pokemonImage,
-    pokemonName,
     lding,
     limpiar,
     setPokemonId,
     pokemonId,
-    reFind
+    reFind,
+    pokemonJson
   } = usePokedex();
   const [search, setSearch] = useState("");
   const handleturnOn = (event) => {
@@ -46,7 +46,7 @@ function Home() {
                 className={`${lding === 2 && turn ? "lding2On" : "lding2Off"}`}
               ></div>
               <div
-                className={`${lding === 2 && turn ? "lding3On" : "lding3Off"}`}
+                className={`${lding === 2 && turn ? "lding3On" : "lding3Off"} ${(lding === "success" && turn) ? "lding3success" : ""}`}
               ></div>
             </div>
           </div>
@@ -57,7 +57,7 @@ function Home() {
               <div className={`${turn ? "pokescreenOn" : "pokescreen"}`}>
                 <img
                   src={pokemonImage}
-                  alt={pokemonName}
+                  alt={pokemonJson.name}
                   className={`pokemon ${
                     pokemonImage && turn ? "show" : "hidden"
                   }`}
@@ -138,7 +138,12 @@ function Home() {
           <img src={header} alt="pokeheader" className="curver1"></img>
           <div className="pokeScreenInfo-container">
             <div className={`${turn ? "screenInfoOn" : "screenInfo"}`}>
-              {pokemonName}
+                <div className="wrapper">
+                <div className="box a">{`${(pokemonImage && turn) ? "#"+pokemonJson[0].id+" "+pokemonJson[0].species.name : ""}`}</div>
+                <div className="box b">{`${(pokemonImage && turn)? "Types: "+pokemonJson[0].types.map((type) => type.type.name).join(" "): ""}`}</div>
+                <div className="box c">{`${(pokemonImage && turn)? "Height: "+(pokemonJson[0].height)/10+"m": ""}`}</div>
+                <div className="box d">{`${(pokemonImage && turn)? "Weight: "+(pokemonJson[0].weight)/10+"kg" : "" }`}</div>
+              </div>
             </div>
             <div className="filter1"></div>
             <div className="filter2"></div>

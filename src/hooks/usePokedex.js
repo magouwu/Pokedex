@@ -3,10 +3,10 @@ import {useState } from "react";
 export default function usePokedex(){
     const [turn, setTurn] = useState(false)
     const [pokemonImage, setPokemonimage] = useState('')
-    const [pokemonName, setPokemonname] = useState('')
     const [lding, setLding] = useState(false)
     // const [type, setType]
     const [pokemonId,setPokemonId] = useState('')
+    const [pokemonJson, setPokemonJson] = useState([])
 
         const find = async (search) => {
             try {
@@ -15,15 +15,16 @@ export default function usePokedex(){
                     method: "get",
                 });
                 const data = await resp.json()
-                const printName = data.species.name
                 const printImage = data.sprites.other.dream_world.front_default
-                const printType = data.types[0].type.name
                 // pokemon.current = data.id
                 setPokemonId(data.id)
+                console.log("console log de pokemonjson", [pokemonJson[0]])
                 setLding(2)
                 setTimeout(function(){
-                    setLding(false)
+                    setLding("success")
                     setPokemonimage(printImage)
+                    setPokemonJson([data])
+                    
                 },2000)
                             
             } catch (err) {
@@ -47,7 +48,8 @@ export default function usePokedex(){
                 const printImage = data.sprites.other.dream_world.front_default
                 setLding(2)
                 setTimeout(function(){
-                    setLding(false)
+                    setLding("success")
+                    setPokemonJson([data])
                     setPokemonimage(printImage)
                 },1000)
              } catch(err){
@@ -64,12 +66,12 @@ export default function usePokedex(){
         setTurn,
         turn,
         pokemonImage,
-        pokemonName,
         lding,
         limpiar,
         reFind,
         pokemonId,
-        setPokemonId
+        setPokemonId,
+        pokemonJson
     }
 }
 
